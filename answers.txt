@@ -1,1 +1,31 @@
-[empty]
+## 1. List the cities that start with the letter "Z"
+grep -e "^Z.*$" cities.txt
+
+## 2. List the cities that end with the word "gan"
+grep -e "^.*gan$" cities.txt
+
+## 3. List the cities that start with "A", "D", or "E"
+grep -e "^[ADE].*$" cities.txt
+
+## 4. List the cities that have "a" as their second letter,
+## and "r" as their third letter (consider cities with more
+## than one word)
+grep -cE -e "\<.ar.*\>" cities.txt
+
+## 5. List the cities that don't start with the letter "C"
+grep -e "^[^C].*$" cities.txt
+
+## 6. List the cities that have at least 14 characters
+grep -iE -e "^[^ ]{14}.*$" cities.txt
+
+## 7. Count how many cities start with the letter "B"
+grep -c -e "^B.*$" cities.txt
+
+## 8. Count how many times the letter "d" repeats
+grep -oE -e "d" cities.txt | wc -l
+
+## 9. List the cities that end with the same letter twice
+grep -E -e "^.*(.)\1{1}$" cities.txt
+
+## 10. List the palindrome cities with five characters
+grep -iwE -e "(.)(.).\2\1" cities.txt
